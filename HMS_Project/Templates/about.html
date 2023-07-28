@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link rel="icon" type="image/png" href="{% static 'Images/icon.png' %}">
+    <title>About Us</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2e60df;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #42464f;
+            padding: 10px;
+            text-align: right;
+            text
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            margin: 50px auto;
+            max-width: 300px;
+        }
+
+        h1 {
+            text-align: center;
+            bottom :2;
+        }
+
+        footer {
+            background-color: #2e60df;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            flex-shrink: 0;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .content {
+            flex-basis: 40%;
+        }
+
+        .image {
+            flex-basis: 60%;
+            }
+
+        .image img {
+            max-width: 80%;
+            height: 100%;
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PI - Hospital Management System</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="home">Home</a></li>
+            <li><a href="about">About Us</a></li>
+            <li><a href="contact1">Contact Us</a></li>
+            <li><a href="login">Login</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <div class="content">
+            <div>
+                <div>
+                    <div>
+                        <h1>About Us</h1>
+                        <p align="justify">
+                            At PI Hospital Management System, we are dedicated to providing exceptional healthcare services with a focus on efficiency, accuracy, and patient satisfaction. Our Hospital Management System is designed to streamline administrative tasks, enhance communication, and improve overall hospital operations. We understand the complexities of managing a modern healthcare facility, and our system is tailored to meet the unique needs of hospitals, clinics, and healthcare organizations.
+                            <br>
+                            <br>
+                            <br>
+                            Our Hospital Management System offers a comprehensive suite of features and modules that cover various aspects of hospital administration. From patient registration and appointment scheduling to medical records management and billing, our system is designed to simplify and automate the day-to-day operations of healthcare facilities. With advanced technology and intuitive interfaces, our system empowers healthcare professionals to deliver the highest quality care while optimizing resource utilization.
+                            <br>
+                            <br>
+                            <b>- Our Purpose and Core Values</b>
+                            <p>
+                                1. Patient Management<br>
+                                2. Appointment Scheduling<br>
+                                3. Electronic Medical Records (EMR)<br>
+                                4. Billing and Insurance Management<br>
+                                5. Pharmacy and Inventory Management<br>
+                                6. Laboratory and Radiology Management<br>
+                                7. Reporting and Analytics<br>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="image">
+                <img src="{% static 'Images/aboutpic.jpeg' %}" width="800" height="700" class="d-inline-block align-top" >
+            </div>
+        </section>
+
+        <footer>
+            &copy; 2023 Hospital Management System. All rights reserved.
+        </footer>
+    </body>
+    </html>

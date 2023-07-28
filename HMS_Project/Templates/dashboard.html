@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link rel="icon" type="image/png" href="{% static 'Images/icon.png' %}">
+    <title>PI-HMS | Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2e60df;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #42464f;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        nav ul li:hover > ul {
+            display: block;
+        }
+
+        nav ul ul {
+            display: none;
+            position: absolute;
+            background-color: #42464f;
+            padding: 10px;
+        }
+
+        nav ul li:hover > ul {
+            display: block;
+        }
+
+        nav ul ul li {
+            width: auto;
+            text-align: left;
+        }
+
+        nav ul ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 5px 10px;
+            display: block;
+        }
+
+        nav ul ul li a:hover {
+            background-color: #42464f;
+        }
+
+        span {
+            color: #ffffff;
+            padding: 5px 10px;
+        }
+
+        span a {
+            color: #ffffff;
+        }
+
+        .dashboard {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+        }
+
+        .dashboard-section {
+            background-color: #8A9EBE;
+            border-radius: 5px;
+            padding: 20px;
+            flex-basis: 30%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .dashboard-section h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .division-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 30px;
+        }
+
+        .division {
+            text-align: center;
+            margin: 20px;
+            height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .division img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #2e60df;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            flex-shrink: 0;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hospital Management Dashboard</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="home">Home</a>
+            </li>
+            <li>
+                <a href="#">Doctors</a>
+                <ul>
+                    <li><a href="docadd">Add</a></li>
+                    <li><a href="docviews">View</a></li>
+                    <li><a href="docviews">Update</a></li>
+                    <li><a href="docviews">Delete</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Patients</a>
+                <ul>
+                    <li><a href="patadd">Add</a></li>
+                    <li><a href="patviews">View</a></li>
+                    <li><a href="patviews">Update</a></li>
+                    <li><a href="patviews">Delete</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Appointments</a>
+                <ul>
+                    <li><a href="appadd">Add</a></li>
+                    <li><a href="appviews">View</a></li>
+                    <li><a href="appviews">Update</a></li>
+                    <li><a href="appviews">Delete</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Billing</a>
+                <ul>
+                    <li><a href="caltotalbill">Calculate Bill</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div>
+            <span>Hello, {{request.user}}</span>
+            <span><a href='adminlogout'>Logout</a></span>
+        </div>
+    </nav>
+
+    <div class="division-container">
+        <div class="division">
+            <img src="{% static 'Images/docdash.jpg' %}" alt="Image 1">
+        </div>
+
+        <div class="division">
+            <img src="{% static 'Images/patdash.jpg' %}" alt="Image 2">
+        </div>
+
+        <div class="division">
+            <img src="{% static 'Images/appdash.jpg' %}" alt="Image 3">
+        </div>
+    </div>
+
+    <div class="dashboard">
+        <div class="dashboard-section">
+            <h2>Total Doctors</h2>
+            <p>{{ doctors_count }}</p>
+        </div>
+
+        <div class="dashboard-section">
+            <h2>Total Patients</h2>
+            <p>{{ patients_count }}</p>
+        </div>
+
+        <div class="dashboard-section">
+            <h2>Appointments</h2>
+            <p>{{ appointments_count }}</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2023 Hospital Management System. All rights reserved.
+    </footer>
+</body>
+</html>

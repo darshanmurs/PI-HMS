@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/png" href="{% static 'Images/icon.png' %}">
+    <title>View Bill</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height:100%;
+        }
+
+        header {
+            background-color: #2e60df;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #42464f;
+            padding: 10px;
+            text-align: right;
+            text
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: #2e60df;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            flex-shrink: 0;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+        table, th, td {
+                  border: 2px solid black;
+                  border-collapse: collapse;
+        }
+        table,h1 {
+            border-collapse: collapse;
+            margin: 0 auto;
+            width: 50%;
+        }
+
+        th, td {
+            padding: 6px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2e60df;
+            color: #fff;
+        }
+
+        input{
+            background-color: #42464f;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input:hover {
+            background-color: #1e40af;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .button-container input {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PI - Hospital Management System</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="home">Home</a></li>
+            <li><a href="dashboard">Dashboard</a></li>
+            <li><a href="about">About Us</a></li>
+            <li><a href="contact1">Contact Us</a></li>
+
+        </ul>
+    </nav>
+    <div class="center-container">
+        <div>
+            <h1>Bill Details</h1>
+            <table border="1px" >
+                <tr>
+                    <th>Field</th>
+                    <th>Details</th>
+                </tr>
+                <tr>
+                    <td>Patient ID</td>
+                    <td>{{ data.Patient_id }}</td>
+                </tr>
+                <tr>
+                    <td>Patient Name</td>
+                    <td>{{ data.Patient_name }}</td>
+                </tr>
+                <tr>
+                    <td>Patient E-Mail</td>
+                    <td>{{ data.Patient_email }}</td>
+                </tr>
+                <tr>
+                    <td>Doctor Name</td>
+                    <td>{{ data.Doctor_Name }}</td>
+                </tr>
+                <tr>
+                    <td>Patient Address</td>
+                    <td>{{ data.Patient_address }}</td>
+                </tr>
+                <tr>
+                    <td>Patient Mobile</td>
+                    <td>{{ data.Patient_mobile }}</td>
+                </tr>
+                <tr>
+                    <td>Patient Disease</td>
+                    <td>{{ data.Patient_disease }}</td>
+                </tr>
+                <tr>
+                    <td>Admit Date</td>
+                    <td>{{ data.Admit_Date }}</td>
+                </tr>
+                <tr>
+                    <td>Discharge Date</td>
+                    <td>{{ data.Discharge_Date }}</td>
+                </tr>
+                <tr>
+                    <td>Total Days</td>
+                    <td>{{ data.Total_days }}</td>
+                </tr>
+                <tr>
+                    <td>Room Charge</td>
+                    <td>{{ data.Room_Charge }}</td>
+                </tr>
+                <tr>
+                    <td>Medicine Cost</td>
+                    <td>{{ data.Medicine_Cost }}</td>
+                </tr>
+                <tr>
+                    <td>Doctor Fee</td>
+                    <td>{{ data.Doctor_Fee }}</td>
+                </tr>
+                <tr>
+                    <td>Other Charge</td>
+                    <td>{{ data.Other_Charge }}</td>
+                </tr>
+                <tr>
+                    <td>Total Bill Amount</td>
+                    <td>{{ data.Total_Bill_Amt }}</td>
+                </tr>
+
+            </table>
+            {% csrf_token %}
+            <div class="button-container">
+                <a href='mailbill/{{ data.Patient_email }}'><input type="submit" value="Send Bill(Mail)"></a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        &copy; 2023 Hospital Management System. All rights reserved.
+    </footer>
+</body>
+</html>
+
+
+

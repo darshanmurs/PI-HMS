@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/png" href="{% static 'Images/icon.png' %}">
+    <title>View Appointment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2e60df;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #42464f;
+            padding: 10px;
+            text-align: right;
+            text
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: #2e60df;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            flex-shrink: 0;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+        table, th, td {
+                  border: 3px solid black;
+                  border-collapse: collapse;
+                  table-layout: auto;
+                  word-wrap: break-word;
+
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2e60df;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PI - Hospital Management System</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="home">Home</a></li>
+            <li><a href="dashboard">Dashboard</a></li>
+            <li><a href="about">About Us</a></li>
+            <li><a href="contact1">Contact Us</a></li>
+
+        </ul>
+    </nav>
+
+    <h1>List of Appointments</h1>
+    <table border="1px" >
+        <tr>
+            <th>Patient Id</th>
+            <th>Patient Name</th>
+            <th>Doctor Id</th>
+            <th>Doctor Name</th>
+            <th>Description</th>
+            <th>Appointment Id</th>
+            <th>Appointment Date</th>
+            <th>App Confirmation</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        {% for appointments in appointment %}
+            <tr>
+                <td>{{ appointments.Patient_id }}</td>
+                <td>{{ appointments.Patient_name }}</td>
+                <td>{{ appointments.Doctor_id }}</td>
+                <td>{{ appointments.Doctor_name}}</td>
+                <td>{{ appointments.Description }}</td>
+                <td>{{ appointments.Appointment_id }}</td>
+                <td>{{ appointments.Appointment_Date }}</td>
+                <td>{{ appointments.App_Confirmation }}</td>
+                <td><a class ="btn" href='appupdate/{{ appointments.Appointment_id }}'>Update</a> </td>
+                <td><a class ="btn" href='appdelete/{{ appointments.Appointment_id }}'>Delete</a> </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="7" >No Appointment details found.</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <footer>
+        &copy; 2023 Hospital Management System. All rights reserved.
+    </footer>
+</body>
+</html>
+
+
+

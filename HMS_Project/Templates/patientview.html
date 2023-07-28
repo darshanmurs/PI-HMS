@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/png" href="{% static 'Images/icon.png' %}">
+    <title>View Patient</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2e60df;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #42464f;
+            padding: 10px;
+            text-align: right;
+            text
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: #2e60df;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            flex-shrink: 0;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+        table, th, td {
+                  border: 3px solid black;
+                  border-collapse: collapse;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2e60df;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PI - Hospital Management System</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="home">Home</a></li>
+            <li><a href="dashboard">Dashboard</a></li>
+            <li><a href="about">About Us</a></li>
+            <li><a href="contact1">Contact Us</a></li>
+
+        </ul>
+    </nav>
+
+    <h1>List of Patients</h1>
+    <table border="1px" >
+        <tr>
+            <th>Patient Id</th>
+            <th>Patient Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Mobile</th>
+            <th>Address</th>
+            <th>Disease</th>
+            <th>Doctor Id</th>
+            <th>Admit Date</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        {% for patients in patient %}
+            <tr>
+                <td>{{ patients.Patient_id }}</td>
+                <td>{{ patients.Patient_name }}</td>
+                <td>{{ patients.Patient_email }}</td>
+                <td>{{ patients.Patient_gender }}</td>
+                <td>{{ patients.Patient_mobile }}</td>
+                <td>{{ patients.Patient_address }}</td>
+                <td>{{ patients.Patient_disease }}</td>
+                <td>{{ patients.Doctor_idAssign }}</td>
+                <td>{{ patients.Admit_Date }}</td>
+                <td><a class ="btn" href='patupdate/{{ patients.Patient_id }}'>Update</a> </td>
+                <td><a class ="btn" href='patdelete/{{ patients.Patient_id }}'>Delete</a> </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="7" >No Patients details found.</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <footer>
+        &copy; 2023 Hospital Management System. All rights reserved.
+    </footer>
+</body>
+</html>
+
+
+

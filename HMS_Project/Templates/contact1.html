@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <link rel="icon" type="image/png" href="{% static 'Images/icon.png' %}">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2e60df;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #42464f;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .content-wrapper {
+            display: flex;
+            margin: 20px;
+        }
+
+        .content-left {
+            flex-basis: 50%;
+            box-sizing: border-box;
+            padding: 0 20px;
+        }
+
+        .content-right {
+            flex-basis: 50%;
+            box-sizing: border-box;
+            padding: 0 20px;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        footer {
+            background-color: #2e60df;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            flex-shrink: 0;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="my-5 display-3 fw-bold ls-tight">
+            Contact <span class="text-primary">us</span>
+        </h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="home">Home</a></li>
+            <li><a href="about">About Us</a></li>
+            <li><a href="login">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-wrapper">
+        <div class="content-left">
+            <img src="{% static 'Images/cu.png' %}" width="600" alt="Contact Image">
+        </div>
+        <div class="content-right">
+            <h2>Contact Information</h2>
+            <p>
+                Address: JP Nagar, Bangalore<br>
+                Phone: +91 9876543210<br>
+                Email: pihms112@gmail.com<br>
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2023 Hospital Management System. All rights reserved.
+    </footer>
+</body>
+</html>
